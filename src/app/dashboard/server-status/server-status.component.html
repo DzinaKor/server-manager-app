@@ -1,10 +1,23 @@
-  @if (currentStatus === 'online') {
-    <p>Servers are online</p>
-    <p>All systems are operational.</p>
-  } @else if (currentStatus === 'offline') {
-    <p>Servers are offline</p>
-    <p>Functionality should be restored soon.</p>
-  } @else {
-    <p>Server status is unknown</p>
-    <p>Fetching server status failed.</p>
-  }
+<div [class]="{
+  status: true,
+  'status-online': currentStatus() === 'online',
+  'status-offline': currentStatus() === 'offline',
+  'status-unknow': currentStatus() === 'unknow'
+}">
+
+<!-- [style.fontSize]="64px"   is an option for the making dynamic inline style binfing --> 
+<!-- [style]="{                this one is for multiple styles wrap in object-->           
+  <!-- fontSize: '64px' -->
+<!-- }"  -->
+
+@if (currentStatus() === 'online') {
+  <p>Servers are online</p>
+  <p>All systems are operational.</p>
+} @else if (currentStatus() === 'offline') {
+  <p>Servers are offline</p>
+  <p>Functionality should be restored soon.</p>
+} @else {
+  <p>Server status is unknown</p>
+  <p>Fetching server status failed.</p>
+}
+</div>
