@@ -9,8 +9,6 @@ import { Component, DestroyRef, OnInit, inject, signal,effect } from '@angular/c
 })
 export class ServerStatusComponent implements OnInit{ //implement build-in interface for not make a typo for example ngonInit instead of ngOnInit
   currentStatus = signal<'online' | 'offline' | 'unknow'>('offline');
-  // private interval?: NodeJS.Timeout;
-  // private interval?: ReturnType<typeof setInterval>; //option for code above if it isn't work
   private destroyRef = inject(DestroyRef);
 
   constructor() {
